@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+    <!-- 从DB读取配置 -->
+    <bean id="threadPoolInfoService" class="com.qihoo.finance.msf.threadpool.config.db.ThreadPoolInfoServiceImpl">
+        <property name="module" value="PPS"></property>
+    </bean>
+
+    <!-- 线程池状态统计 -->
+    <bean id="threadPoolStateJob" class="com.qihoo.finance.msf.threadpool.job.ThreadPoolStateJob">
+    </bean>
+    <!-- 线程状态统计 -->
+    <bean id="threadStateJob" class="com.qihoo.finance.msf.threadpool.job.ThreadStateJob">
+    </bean>
+    <!-- 线程池更新 -->
+    <bean id="threadPoolUpdateJob" class="com.qihoo.finance.msf.threadpool.job.ThreadPoolUpdateJob">
+    </bean>
+    <!-- 锁配置 需求声明spring bean -->
+    <bean id="redisTaskLockService" class="com.qihoo.finance.msf.threadpool.impl.RedisTaskLockServiceImpl">
+    </bean>
+
+    <!-- 通过spring task，控制job运行 -->
+    <task:scheduled-tasks>
+        <task:scheduled ref="threadPoolStateJob" method="run" cron="0 0/1 * * * ?"/>
+        <task:scheduled ref="threadStateJob" method="run" cron="0 0/1 * * * ?"/>
+        <task:scheduled ref="threadPoolUpdateJob" method="run" cron="0 0/1 * * * ?"/>
+    </task:scheduled-tasks>
+</beans>

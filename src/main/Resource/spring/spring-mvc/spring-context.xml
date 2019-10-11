@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns="http://www.springframework.org/schema/beans" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd"
+       default-lazy-init="true">
+    <description>Spring Configuration</description>
+
+    <!-- 计划任务配置，用 @Service @Lazy(false)标注类，用@Scheduled(cron = "0 0 2 * * ?")标注方法 -->
+    <task:executor id="asyncExecutor" pool-size="15"/>
+    <task:scheduler id="scheduler" pool-size="10"/>
+    <task:annotation-driven scheduler="scheduler" executor="asyncExecutor" proxy-target-class="true"/>
+
+    <!-- 数据字典缓存 -->
+    <bean id="dictionaryCache" class="com.qihoo.finance.msf.app.system.dictionary.cache.DictionaryCache">
+        <!-- 加载指定模块（系统）的数据，默认会加载COMMON模块的数据 -->
+        <property name="module" value="PPS"></property>
+    </bean>
+
+    <!-- 系统参数缓存 -->
+    <bean id="parameterCache" class="com.qihoo.finance.msf.app.system.parameter.cache.ParameterCache">
+        <!-- 加载指定模块（系统）的数据，默认会加载COMMON模块的数据 -->
+        <property name="module" value="PPS"></property>
+    </bean>
+
+    <!-- 贷超分配贷超分配組緩存 -->
+    <bean id="distributeGroupCache" class="com.qihoo.finance.pps.modules.rjguide.cache.DistributeGroupCache"> </bean>
+    <!-- 贷超分配详细比例緩存 -->
+    <bean id="distributeProportionCache" class="com.qihoo.finance.pps.modules.rjguide.cache.DistributeProportionCache"> </bean>
+    <!-- 贷超分配客群编码缓存 -->
+    <bean id="loanDenyCodeCache" class="com.qihoo.finance.pps.modules.rjguide.cache.LoanDenyCodeCache"> </bean>
+    <!-- 合作方展示配置缓存 -->
+    <bean id="partnerShowConfigCache" class="com.qihoo.finance.pps.modules.rjguide.cache.PartnerShowConfigCache"> </bean>
+
+    <!-- 通过spring task，控制缓存刷新。（刷新过程不影响使用——AB切换机制） -->
+    <task:scheduled-tasks>
+        <task:scheduled ref="dictionaryCache" method="update" cron="15 0/10 * * * ?"/>
+        <task:scheduled ref="parameterCache" method="update" cron="17 0/1 * * * ?"/>
+
+        <task:scheduled ref="partnerShowConfigCache" method="update" cron="${db_config_half_hourly_cache_cron}"/>
+        <task:scheduled ref="distributeGroupCache" method="update" cron="${db_config_distributeGroup_cache_cron}"/>
+        <task:scheduled ref="distributeProportionCache" method="update" cron="${db_config_distributeProportion_cache_cron}"/>
+        <task:scheduled ref="loanDenyCodeCache" method="update" cron="${db_config_hourly_cache_cron}"/>
+    </task:scheduled-tasks>
+
+</beans>
