@@ -58,7 +58,6 @@ public class TestFuture {
         thread.start();
         String s = future.get(5,TimeUnit.SECONDS);
         System.out.println("start后:"+s);
-
     }
 
 }

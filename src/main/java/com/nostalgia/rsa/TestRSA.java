@@ -29,38 +29,6 @@ public class TestRSA {
     }
 
 
-    @Test
-    public void run2() throws Exception{
-        String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3hCsbFGQVGeKJgropG9t1+OGAwk4NGWSpeeSFT7w189nkJ3v7YggDF4BuQlNr0O9qeM9s/taAYaAMXlQfyWgPgn7AzrNom91G9TXGHhmsArGxmmzx6/KtRMrPSc0WJfgGChftTZ4GcGmBZN5gpqFUbdM2NXtOSpzeVWdML1COPQIDAQAB";
-        String privateKey = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAPeEKxsUZBUZ4omCuikb23X44YDCTg0ZZKl55IVPvDXz2eQne/tiCAMXgG5CU2vQ72p4z2z+1oBhoAxeVB/JaA+CfsDOs2ib3Ub1NcYeGawCsbGabPHr8q1Eys9JzRYl+AYKF+1NngZwaYFk3mCmoVRt0zY1e05KnN5VZ0wvUI49AgMBAAECgYBAP/rAiMaCA7oeX+TbDvQk53oB5m5EUDclFxMO1+fPSYFiDC3Oz1+tDci01lq5Pf8n8DxH2s7rfGwDSekkZy+vdEzfpRExCeA7BQytlXObWicmZqjKcLGkKEH0jhGUQWVdiamJmq0SdWoVf2Na55Kx0DM+EjWZmC9Uc+bYFdOxsQJBAPvEw3rPGOzJM36/oGUQHXoWL3gfD86wxEdzk2k6RJwW/+RNZLtUnCWH+LN+Ado7UWD2l7b0caZgzC2Nce6ftYsCQQD7rRvvx1OrsENL+E4FGmYOvVQPLNIkDtqTMGW1/C5fDrn1Sic8iC3ht0uDzDOJMwH7wEtYnDu4JQHqSMm/8RRXAkBoeBsNCIY1Kr+9ZlJt3SP+FtqXo3vxrhOj+mc+kLkLc9e2qg6UVOV+BU/DWxP1tAtuiqQlfIT0HtJaTIjsFUVFAkEAkont3UQzHKGJ3Z8bVm9TgzuLyTYwuRwI+nDQmBDYszJw5jih9eXYyTcfegMY8sbHXd1OQa7eOs8ZeV+eUOs/CwJAXRKo9zGMxHrXQYIQHZZJ6HO7CgA05pYpy6dFhvD8BbQrZO+dwSIZ+YWdihq7ZkpjSoLnTy6jnlvv56suLn2jKg==";
-
-        String responseData = "g/y+rjjHCvyOmj47Px1hlwevFXwBnDnNuhm2Un0XP3skQQPJebufJq0G3bR526GFNsHdDjOM0HoRvjIlRtf5pNauX5VOJ1zbaekaQdQ43HVUnSr10rIpFBaGlOheh1oWDt5z0gXyUFCU91Ui63k3+6Pva+5Y1/rZSza4Hc2hhB4=";
-
-        /*String content = "我是内容";
-        String s = LoanMarketEncryptUtil.rsaEncrypt(content, publicKey);
-        String s1 = LoanMarketEncryptUtil.rsaDecrypt(s, privateKey);
-        System.out.println(s1);*/
-
-        System.out.println(LoanMarketEncryptUtil.rsaDecrypt(responseData, privateKey));
-
-    }
-
-    @Test
-    public void run3() throws Exception{
-        String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3hCsbFGQVGeKJgropG9t1+OGAwk4NGWSpeeSFT7w189nkJ3v7YggDF4BuQlNr0O9qeM9s/taAYaAMXlQfyWgPgn7AzrNom91G9TXGHhmsArGxmmzx6/KtRMrPSc0WJfgGChftTZ4GcGmBZN5gpqFUbdM2NXtOSpzeVWdML1COPQIDAQAB";
-        String privateKey = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAPeEKxsUZBUZ4omCuikb23X44YDCTg0ZZKl55IVPvDXz2eQne/tiCAMXgG5CU2vQ72p4z2z+1oBhoAxeVB/JaA+CfsDOs2ib3Ub1NcYeGawCsbGabPHr8q1Eys9JzRYl+AYKF+1NngZwaYFk3mCmoVRt0zY1e05KnN5VZ0wvUI49AgMBAAECgYBAP/rAiMaCA7oeX+TbDvQk53oB5m5EUDclFxMO1+fPSYFiDC3Oz1+tDci01lq5Pf8n8DxH2s7rfGwDSekkZy+vdEzfpRExCeA7BQytlXObWicmZqjKcLGkKEH0jhGUQWVdiamJmq0SdWoVf2Na55Kx0DM+EjWZmC9Uc+bYFdOxsQJBAPvEw3rPGOzJM36/oGUQHXoWL3gfD86wxEdzk2k6RJwW/+RNZLtUnCWH+LN+Ado7UWD2l7b0caZgzC2Nce6ftYsCQQD7rRvvx1OrsENL+E4FGmYOvVQPLNIkDtqTMGW1/C5fDrn1Sic8iC3ht0uDzDOJMwH7wEtYnDu4JQHqSMm/8RRXAkBoeBsNCIY1Kr+9ZlJt3SP+FtqXo3vxrhOj+mc+kLkLc9e2qg6UVOV+BU/DWxP1tAtuiqQlfIT0HtJaTIjsFUVFAkEAkont3UQzHKGJ3Z8bVm9TgzuLyTYwuRwI+nDQmBDYszJw5jih9eXYyTcfegMY8sbHXd1OQa7eOs8ZeV+eUOs/CwJAXRKo9zGMxHrXQYIQHZZJ6HO7CgA05pYpy6dFhvD8BbQrZO+dwSIZ+YWdihq7ZkpjSoLnTy6jnlvv56suLn2jKg==";
-
-        String responseData = "aj/+ISmrJR6AirBKD8JwDOhriH7Dh5lj054TXUt4gJQZ+NenMCH5ZN5+uYkiVW831/KDwYj/Oke2qvOTZ61AN4BJ7pNMcmN/qr6KBcvKcQ20VXOiMqo5T2jFvcESaK5CRyiIkU/wHXPeC0jcsvzizExcUNe2imLLtpx4UOHQKso=";
-
-        /*String content = "我是内容";
-        String s = LoanMarketEncryptUtil.rsaEncrypt(content, publicKey);
-        String s1 = LoanMarketEncryptUtil.rsaDecrypt(s, privateKey);
-        System.out.println(s1);*/
-
-        System.out.println(LoanMarketEncryptUtil.rsaDecrypt(responseData, privateKey));
-
-    }
-
     /**
      * 先验签再解密
      * @throws Exception
@@ -87,35 +55,48 @@ public class TestRSA {
      */
     @Test
     public void run5() throws Exception{
-        /*String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDS4Z5XqcOzi6bw/6bU7IQYf6kEVIyVBmux+HAlUYQpm+PJhO3FiNsv7a3jEL4hqZs9tQczOZe9LRLQzPGyL/0+/T/9zTW652Bd106uScYXG4DvrPzMexg7kNWhsqWIQGtfTJ/Z2qhHQgSHTG4AS5wsLeeEQQBrbV5oEiFOQhHSSQIDAQAB";
-        String privateKey = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANLhnlepw7OLpvD/ptTshBh/qQRUjJUGa7H4cCVRhCmb48mE7cWI2y/treMQviGpmz21BzM5l70tEtDM8bIv/T79P/3NNbrnYF3XTq5JxhcbgO+s/Mx7GDuQ1aGypYhAa19Mn9naqEdCBIdMbgBLnCwt54RBAGttXmgSIU5CEdJJAgMBAAECgYEAuMdrKGMfkOZwXEGWnIG16YWKwrmXCUm7+hC3q2t3A8KN4NkyQuD9NkzsDcdw4iwsU/CYo4D2fZPOJdk+eyTjn8IdwMCGH8uCZGvqJLHEk+cW1myB/jwXQzRc3qlyyVFE/jQwiucBk4E8RZQHIf9cMIP6A9HnGAl9VYh/cJGCVtECQQD94V8G1O4yc8pEgcPRiaVpIH3f//hnfyO9ONAAoXOeJZt924ts7YKtZ7gVd1C+8u2Q6p6f7CulJvvGfr5dKaS1AkEA1KRX/6eobwfsDL3jx1QaqRZi2f+loybmfwWbxksXy1n79Ipdj6FkB724GUQKZ9Cj8CiAYTbewqIpGdbinMSnxQJBAK/nV1AEeIW8dIjC4EpudI1CVfS+Bf6vuLOCiZvmQZVxuSqa0x/F8KT1GDbHVMr4xmGCLiXgHN1xBUGiz4L9N4ECQQDJLcNjyQd+JIybcXxzNYsTtm5HuarINSGVw4ShkqIsbjIGJnJmVVcCS+hFXy5JEghISslLMFKI6krge4FiuFvRAkBa98MOPa945JM3tbHP8m5+gCsBxnMsFGh9zzNd1m7L42yirHXKnTuFGKK7QPq4A+/Lf4JtIqFDC846jB5ZvcIb";*/
-        /*Map<String, String> keyPairMap = LoanMarketEncryptUtil.genKeyPairStringMap();
-        System.out.println(keyPairMap);*/
-        /*String publicKey = keyPairMap.get(LoanMarketEncryptUtil.PUBLIC_KEY);
-        String privateKey = keyPairMap.get(LoanMarketEncryptUtil.PRIVATE_KEY);
-        System.out.println("publicKey:"+publicKey);
-        System.out.println("privateKey:"+privateKey);*/
-        String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3hCsbFGQVGeKJgropG9t1+OGAwk4NGWSpeeSFT7w189nkJ3v7YggDF4BuQlNr0O9qeM9s/taAYaAMXlQfyWgPgn7AzrNom91G9TXGHhmsArGxmmzx6/KtRMrPSc0WJfgGChftTZ4GcGmBZN5gpqFUbdM2NXtOSpzeVWdML1COPQIDAQAB";
-        String privateKey = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAPeEKxsUZBUZ4omCuikb23X44YDCTg0ZZKl55IVPvDXz2eQne/tiCAMXgG5CU2vQ72p4z2z+1oBhoAxeVB/JaA+CfsDOs2ib3Ub1NcYeGawCsbGabPHr8q1Eys9JzRYl+AYKF+1NngZwaYFk3mCmoVRt0zY1e05KnN5VZ0wvUI49AgMBAAECgYBAP/rAiMaCA7oeX+TbDvQk53oB5m5EUDclFxMO1+fPSYFiDC3Oz1+tDci01lq5Pf8n8DxH2s7rfGwDSekkZy+vdEzfpRExCeA7BQytlXObWicmZqjKcLGkKEH0jhGUQWVdiamJmq0SdWoVf2Na55Kx0DM+EjWZmC9Uc+bYFdOxsQJBAPvEw3rPGOzJM36/oGUQHXoWL3gfD86wxEdzk2k6RJwW/+RNZLtUnCWH+LN+Ado7UWD2l7b0caZgzC2Nce6ftYsCQQD7rRvvx1OrsENL+E4FGmYOvVQPLNIkDtqTMGW1/C5fDrn1Sic8iC3ht0uDzDOJMwH7wEtYnDu4JQHqSMm/8RRXAkBoeBsNCIY1Kr+9ZlJt3SP+FtqXo3vxrhOj+mc+kLkLc9e2qg6UVOV+BU/DWxP1tAtuiqQlfIT0HtJaTIjsFUVFAkEAkont3UQzHKGJ3Z8bVm9TgzuLyTYwuRwI+nDQmBDYszJw5jih9eXYyTcfegMY8sbHXd1OQa7eOs8ZeV+eUOs/CwJAXRKo9zGMxHrXQYIQHZZJ6HO7CgA05pYpy6dFhvD8BbQrZO+dwSIZ+YWdihq7ZkpjSoLnTy6jnlvv56suLn2jKg==";
+
+        String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrFtJBMYfJloKnbkWc84SpaVr00ELgZvlvSfa9h3tZktQ80YeE2dzXfmNaSKqjr5dj8eiSVb0fIVYx5Adz1Ao7HlDlHyRNnT6mYgzuojrD5gBcW2Pz8rWH6/lMUL9ezeujmtk1etiStM5DaJAfjwuuQ2fbJ+3M1X44uN2NjD5GiQIDAQAB";
+        String privateKey = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAKsW0kExh8mWgqduRZzzhKlpWvTQQuBm+W9J9r2He1mS1DzRh4TZ3Nd+Y1pIqqOvl2Px6JJVvR8hVjHkB3PUCjseUOUfJE2dPqZiDO6iOsPmAFxbY/PytYfr+UxQv17N66Oa2TV62JK0zkNokB+PC65DZ9sn7czVfji43Y2MPkaJAgMBAAECgYEAp3qNk5gCzolxmKjPqFaRtK0XhrMf5D+pSRHkYZ/wVbzv2iFaQehq0OA+LbEYqWdIEWRLQISBv6mIkQohaXdWEvNXhrlbV1mEynJbFqmvDgt9AC8UktcntgzHvBGbEbcNJgDeg6JlW7mCAyuO/oeMMfGIqUpxGU/A25qR42+5HQECQQDTJYKnzEhnYiiIz6CbTG5shDc0E9yJJhnLaYz7zh54R0iSeVnuI9ajue6xdzxz3L1+Q5wlzS/WddmfwYFkPhYxAkEAz27tBGuL6jHey3NUqfzeNRXZPWqo61d+9vdqH5wz4k7ee/17++P26eUO1ksiRaNoAyJNslFgfYsp0AYBJvwn2QJBAIKZOO9A06feduPoSJbF96b3QI3dmxLZlirS5nj5TK9op+KxXIaHdENgxdrOvX2Mk0h92R8oguZLjofZ0IaIQIECQQCvjDnMHtQXC8N4PI9vGNBY7red0XFJUg/iI/rM653BLWv+VMSjpQZmZXKMCqPjeWniFRraCSJ2vNpS8XHyMz3pAkAPD3TInyNIIidEZfXLf/OBVyafYhbRbHZqCLj7+CETou+Gb7+rADAuKDncBtZTYYnznOfsWcLITKmU9/dCgXyj";
         String content = "{\"code\":\"\",\"flag\":\"S\",\"msg\":\"\"}";
 
-        /*String s = LoanMarketEncryptUtil.rsaEncrypt(content, publicKey);
-        System.out.println(s);
-        System.out.println("==============");
-        String s1 = LoanMarketEncryptUtil.rsaDecrypt(s, privateKey);
-        System.out.println(s1);*/
+        //加密
+        String data = LoanMarketEncryptUtil.rsaEncrypt(content,publicKey);
         //解密
-        String data = "aj/+ISmrJR6AirBKD8JwDOhriH7Dh5lj054TXUt4gJQZ+NenMCH5ZN5+uYkiVW831/KDwYj/Oke2qvOTZ61AN4BJ7pNMcmN/qr6KBcvKcQ20VXOiMqo5T2jFvcESaK5CRyiIkU/wHXPeC0jcsvzizExcUNe2imLLtpx4UOHQKso=";
         String s1 = LoanMarketEncryptUtil.rsaDecrypt(data, privateKey);
         System.out.println(s1);
     }
 
     /**
      * 准备测试数据
+     * 加密加签
      * @throws Exception
      */
     @Test
     public void run6() throws Exception{
+        String partner_pulbic_key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrFtJBMYfJloKnbkWc84SpaVr00ELgZvlvSfa9h3tZktQ80YeE2dzXfmNaSKqjr5dj8eiSVb0fIVYx5Adz1Ao7HlDlHyRNnT6mYgzuojrD5gBcW2Pz8rWH6/lMUL9ezeujmtk1etiStM5DaJAfjwuuQ2fbJ+3M1X44uN2NjD5GiQIDAQAB";
+        String private_key = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANPmBw2sXIsN5vwJhyKvdEK7id1cSL/96w2qgUwj5AbsbqvXanSRg3fMlJtR404viPlpeiCYxnIoYpYyLxT3oZMaNDJ+LN3glG54dLWf9+qHcugGTDEO22ZmmjNhvFnVTVrx+2dj2COYFi7430jvssLT183K0WoPRI1dNEfDTeDVAgMBAAECgYEAuq0DucAHJ1nwDEo4iw4XVlLxedo7HSkNUtTLY9Caqp7QQQNd/aPUNk48/Th/D/pAqbmKpfzxltCNSdScNdSSufFPKyJZAkQC4j5giCoQ19ETcQmHkCChVIkAHDqcX/lQQf+asBPS6e1Ep+JPiK2I7ZOga0s1+bdQEjEXCvKlzWECQQD/jqoEyj7I0kl3XxX2+fd6rJ25gdKVYCZ0I7H/DpMeJTxIoInPnU+2YqqQoIkguzS2YkILzvxZsXnyzWvWd1x7AkEA1EQAXLSltCqLuZiyzapVgtiDbElr8/WInlazEcPUBxLbg5eYPP3KaO0QqtQJbOpzxllr6W2aPQiNQZF6cO5+7wJBAMFAihNbOUU1uDab4glFF79dv1wj7zHkZs/WmmitBdV7BO5K8EvewwPB8wexTmFBD+iHvzgcyzmsevKAIvcohfcCQHNncUb11C1rAEJsubHFjO4xpupF1NJzSM7FVmAvNuSNpRkbX2KxnM2FLg2icGlt4noRffEQbM4ICzx9yrMBh7MCQChXjreiCDlNm0Koh4kUY+vAOQSjULs5JoeD6GGboMjuL5QLocaAEzbIgymfhLlt4JuZoHYJ+9/OZOH4MPDNVzs=";
+        //15989016026422828197803173917
+        String content = "{\"hitType\":\"MD5\",\"hitValue\":\"6c10da40e97aa3abe80d8f3e8e4a5c0a\",\"ip\":\"127.0.0.1\"}";
+        //加密
+        String requestData = LoanMarketEncryptUtil.rsaEncrypt(content,partner_pulbic_key);
+        //加签
+        System.out.println("密文:"+requestData);
+        String sign = LoanMarketSignUtil.rsaSign(private_key,requestData);
+        System.out.println("签名:"+sign);
+        System.out.println("========================");
+
+
+
+    }
+
+    /**
+     * 准备测试数据
+     * 加密加签
+     * @throws Exception
+     */
+    @Test
+    public void run66() throws Exception{
         String partner_pulbic_key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3hCsbFGQVGeKJgropG9t1+OGAwk4NGWSpeeSFT7w189nkJ3v7YggDF4BuQlNr0O9qeM9s/taAYaAMXlQfyWgPgn7AzrNom91G9TXGHhmsArGxmmzx6/KtRMrPSc0WJfgGChftTZ4GcGmBZN5gpqFUbdM2NXtOSpzeVWdML1COPQIDAQAB";
         String private_key = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAL1G1LdPEjKR2ECnwWT57tjomW3Lvrw0Oa23qMgZKfJikiAbxlOB4St2UhXy0riQEyoHJE3onl6VEAfJ0GXrB0iMwzvJwWlRlxizQ2k4manIxwLYOWePri0wsTAoNeqf2pjfVlLEqHg1yBXmWKLNVZCPb5w6U7YdP8Zz3Sksg0ttAgMBAAECgYAdT6u/W3Jg/G71zETJw162noasFyJJePj5qvhrTGJPk+43JLX41qMtHNynY3w4cq9VEdgQbJah5QmfeyRXtCbjU5SQk+9c0g5wsuLX93KSpmVzgHkc08O0B15CtKmwp8ztvM9OWHTehkzChkWuWS7z+R5DWzmcDk+KNIAIBsfQLQJBAPos9EezhTggBhNvVmN4wFufVYdKedRC/KMNM5GZ6f0Bsr8dW/ugEX/36w/A9XugFl53FQBfetPvo5l2fSxoBzcCQQDBrutZ//K+gA8Ixb/9MjaQCZZQSYa4QJddevhnLZAmMzAW9tKE2LPqxta9dstW30uGWUA7uHftYZQIbd9peMx7AkBMT+An6vvNFf+keAbbCt9qU10MisxE0jYsKn+7fz6f3Z+/ql3/kGEmLuK2CH8ZOcj5AcwXNAjMk0HNMxaVsBnbAkAWv0Vy54WJ7B5X6Gm5Afm4hve5bDk/UI62cufTrl08r0xZlhl5cr4Gt92mmNoe1NDY8YiCuxKStaAeMVFI4OAbAkBrUDiu/DSId8KVpp+N8iL2ulnZJMyqLmvqsQT6xJgRw8gmA8NmHSJNmnbBecX8UWAgUdtwiHzk6oz/Fb+fl1Pr";
         //15989016026422828197803173917
@@ -139,29 +120,29 @@ public class TestRSA {
      */
     @Test
     public void run33() throws Exception{
-        String content = "15989016026422828197803173917";
+        String content = "15974859632422828197803173917";
         System.out.println(MD5Util.getMD5String(content));
     }
 
     /**
      * 验证返回数据
+     * 验签解密
      * @throws Exception
      */
     @Test
     public void run7() throws Exception {
-        String partner_pulbic_key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDS4Z5XqcOzi6bw/6bU7IQYf6kEVIyVBmux+HAlUYQpm+PJhO3FiNsv7a3jEL4hqZs9tQczOZe9LRLQzPGyL/0+/T/9zTW652Bd106uScYXG4DvrPzMexg7kNWhsqWIQGtfTJ/Z2qhHQgSHTG4AS5wsLeeEQQBrbV5oEiFOQhHSSQIDAQAB";
-        String private_key = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAL1G1LdPEjKR2ECnwWT57tjomW3Lvrw0Oa23qMgZKfJikiAbxlOB4St2UhXy0riQEyoHJE3onl6VEAfJ0GXrB0iMwzvJwWlRlxizQ2k4manIxwLYOWePri0wsTAoNeqf2pjfVlLEqHg1yBXmWKLNVZCPb5w6U7YdP8Zz3Sksg0ttAgMBAAECgYAdT6u/W3Jg/G71zETJw162noasFyJJePj5qvhrTGJPk+43JLX41qMtHNynY3w4cq9VEdgQbJah5QmfeyRXtCbjU5SQk+9c0g5wsuLX93KSpmVzgHkc08O0B15CtKmwp8ztvM9OWHTehkzChkWuWS7z+R5DWzmcDk+KNIAIBsfQLQJBAPos9EezhTggBhNvVmN4wFufVYdKedRC/KMNM5GZ6f0Bsr8dW/ugEX/36w/A9XugFl53FQBfetPvo5l2fSxoBzcCQQDBrutZ//K+gA8Ixb/9MjaQCZZQSYa4QJddevhnLZAmMzAW9tKE2LPqxta9dstW30uGWUA7uHftYZQIbd9peMx7AkBMT+An6vvNFf+keAbbCt9qU10MisxE0jYsKn+7fz6f3Z+/ql3/kGEmLuK2CH8ZOcj5AcwXNAjMk0HNMxaVsBnbAkAWv0Vy54WJ7B5X6Gm5Afm4hve5bDk/UI62cufTrl08r0xZlhl5cr4Gt92mmNoe1NDY8YiCuxKStaAeMVFI4OAbAkBrUDiu/DSId8KVpp+N8iL2ulnZJMyqLmvqsQT6xJgRw8gmA8NmHSJNmnbBecX8UWAgUdtwiHzk6oz/Fb+fl1Pr";
-        String partner_private_key = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANLhnlepw7OLpvD/ptTshBh/qQRUjJUGa7H4cCVRhCmb48mE7cWI2y/treMQviGpmz21BzM5l70tEtDM8bIv/T79P/3NNbrnYF3XTq5JxhcbgO+s/Mx7GDuQ1aGypYhAa19Mn9naqEdCBIdMbgBLnCwt54RBAGttXmgSIU5CEdJJAgMBAAECgYEAuMdrKGMfkOZwXEGWnIG16YWKwrmXCUm7+hC3q2t3A8KN4NkyQuD9NkzsDcdw4iwsU/CYo4D2fZPOJdk+eyTjn8IdwMCGH8uCZGvqJLHEk+cW1myB/jwXQzRc3qlyyVFE/jQwiucBk4E8RZQHIf9cMIP6A9HnGAl9VYh/cJGCVtECQQD94V8G1O4yc8pEgcPRiaVpIH3f//hnfyO9ONAAoXOeJZt924ts7YKtZ7gVd1C+8u2Q6p6f7CulJvvGfr5dKaS1AkEA1KRX/6eobwfsDL3jx1QaqRZi2f+loybmfwWbxksXy1n79Ipdj6FkB724GUQKZ9Cj8CiAYTbewqIpGdbinMSnxQJBAK/nV1AEeIW8dIjC4EpudI1CVfS+Bf6vuLOCiZvmQZVxuSqa0x/F8KT1GDbHVMr4xmGCLiXgHN1xBUGiz4L9N4ECQQDJLcNjyQd+JIybcXxzNYsTtm5HuarINSGVw4ShkqIsbjIGJnJmVVcCS+hFXy5JEghISslLMFKI6krge4FiuFvRAkBa98MOPa945JM3tbHP8m5+gCsBxnMsFGh9zzNd1m7L42yirHXKnTuFGKK7QPq4A+/Lf4JtIqFDC846jB5ZvcIb";
+        String partner_pulbic_key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrFtJBMYfJloKnbkWc84SpaVr00ELgZvlvSfa9h3tZktQ80YeE2dzXfmNaSKqjr5dj8eiSVb0fIVYx5Adz1Ao7HlDlHyRNnT6mYgzuojrD5gBcW2Pz8rWH6/lMUL9ezeujmtk1etiStM5DaJAfjwuuQ2fbJ+3M1X44uN2NjD5GiQIDAQAB";
+        String private_key = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANPmBw2sXIsN5vwJhyKvdEK7id1cSL/96w2qgUwj5AbsbqvXanSRg3fMlJtR404viPlpeiCYxnIoYpYyLxT3oZMaNDJ+LN3glG54dLWf9+qHcugGTDEO22ZmmjNhvFnVTVrx+2dj2COYFi7430jvssLT183K0WoPRI1dNEfDTeDVAgMBAAECgYEAuq0DucAHJ1nwDEo4iw4XVlLxedo7HSkNUtTLY9Caqp7QQQNd/aPUNk48/Th/D/pAqbmKpfzxltCNSdScNdSSufFPKyJZAkQC4j5giCoQ19ETcQmHkCChVIkAHDqcX/lQQf+asBPS6e1Ep+JPiK2I7ZOga0s1+bdQEjEXCvKlzWECQQD/jqoEyj7I0kl3XxX2+fd6rJ25gdKVYCZ0I7H/DpMeJTxIoInPnU+2YqqQoIkguzS2YkILzvxZsXnyzWvWd1x7AkEA1EQAXLSltCqLuZiyzapVgtiDbElr8/WInlazEcPUBxLbg5eYPP3KaO0QqtQJbOpzxllr6W2aPQiNQZF6cO5+7wJBAMFAihNbOUU1uDab4glFF79dv1wj7zHkZs/WmmitBdV7BO5K8EvewwPB8wexTmFBD+iHvzgcyzmsevKAIvcohfcCQHNncUb11C1rAEJsubHFjO4xpupF1NJzSM7FVmAvNuSNpRkbX2KxnM2FLg2icGlt4noRffEQbM4ICzx9yrMBh7MCQChXjreiCDlNm0Koh4kUY+vAOQSjULs5JoeD6GGboMjuL5QLocaAEzbIgymfhLlt4JuZoHYJ+9/OZOH4MPDNVzs=";
 
 
-        String responseData = "PKIrMbFSditwKvVGjkaDoITyi39xxg6sD074++5w321EwJLb206xHvq1lJiKU1gkCLG3mrXiZ6hUpB3Fv9iBPjfpLNtgX0v2j19BsklgepA5+RTgewWwxPldmL9k+WKSdMj4j92RKDzfKsYQxljqkkelSwXo5xkh82iKuAbAKig=";
-        String responseSign = "LKigldp4VsZhieJ11ARJNiJ7+olWRJyFDErhKJTZCJiYmwY3k2zB3C90R9H8ZYn1u70rnqkVwd/tCbCsyBHx/PRGgNN2SBlNFvoevFCYn78BUgjG6wSACnGnAbLJ932BG1arJqSvdgCSHflozz2KPd7HCShtrctotS2MTw5Qv+M=";
+        String responseData = "sjflLDFBr/ieq2BifOTJ16cRwHJynR+qtqaPwEkhxpPtDhlQzNd+NtrNiFnb7x4M/rPtHmUOfRF7qrYHoj4OhMZht1ZkQI7YP/cN3FmySuO/xSIc5FlZ3rLdT65kOtI18tBHqZP0/0k5yoi0kFT65scFNmB0dhnA04n5BW9jVsU=";
+        String responseSign = "bkARLC9dH/jRdm8NRctmDEWV66y/Y5n/qsUrD8Caftw7ZkaytdIQRHA1+x5SWdpvx/X4LEApvQHO2W5pSvcO0H4ZPpYdFKk7ASnsW/Kq/0hz5TDUHCssEzCrtlJPMAUAg4gzwxW5dXg2W3qduI8nACzM5R1UyVlO264ZaAzMGOU=";
 
         //加签并比较数据是否一致
-        String rsaSign = LoanMarketSignUtil.rsaSign(partner_private_key, responseData);
+        /*String rsaSign = LoanMarketSignUtil.rsaSign(partner_private_key, responseData);
         System.out.println(rsaSign);
         System.out.println(responseSign);
-        System.out.println("是否相等:"+ rsaSign == responseSign );
+        System.out.println("是否相等:"+ rsaSign == responseSign );*/
 
 
         //解签

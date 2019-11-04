@@ -19,4 +19,18 @@ public class TestString {
 
     }
 
+
+    @Test
+    public void run1(){
+
+        try {
+            System.out.println("我要执行了...");
+            int i = 1/0;
+            System.out.println("我在后面执行了...");
+        } catch (Exception e) {
+            System.out.println("只有我能执行");
+        }
+
+    }
+
 }

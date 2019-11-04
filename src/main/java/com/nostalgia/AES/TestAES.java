@@ -10,7 +10,7 @@ import org.junit.Test;
 public class TestAES {
 
 
-    private static String aesKey = "k3j6uhg8hu9rh1gu";
+    private static String aesKey = "fheijERH235GS63A";
     /*private static String aesKey = "j4mcn6bv8wt2yeui";*/
 
     /**
@@ -43,20 +43,21 @@ public class TestAES {
      */
     @Test
     public void run1() throws Exception{
-        String json = "{\"hitType\":\"MOBILE\",\"mobileNo\":\"15887654321\",\"ip\":\"121.199.32.111\"}";
-        String partnerKey = "qyu3erriev7kmvkx";
+        String json = "{\"hitType\":\"MOBILE\",\"mobileNo\":\"15841526354\",\"ip\":\"121.199.32.111\"}";
+        String partnerKey = "fheijERH235GS63A";
         String s = AESUtil.aesEncrypt(json, AESUtil.base64Encode(partnerKey));
         System.out.println(s);
     }
 
     @Test
     public void run2() throws Exception{
-        String josn = "{\"hitType\":\"MOBILE\",\"mobileNo\":\"15887654321\",\"ip\":\"121.199.32.111\"}";
+        String josn = "{\"flowNo\":\"P5907944140313735168\",\"mobileNo\":\"15996325874\"}";
         //加密
-        String data = AESUtil.aesEncrypt(josn, AESUtil.base64Encode(aesKey));
+        String key = "Vxjeadc6xSTVx8HN";
+        String data = AESUtil.aesEncrypt(josn, AESUtil.base64Encode(key));
         System.out.println(data);
         //解密
-        String origReqStr = AESUtil.aesDecrypt(data, AESUtil.base64Encode(aesKey));
+        String origReqStr = AESUtil.aesDecrypt(data, AESUtil.base64Encode(key));
         System.out.println(origReqStr);
     }
 

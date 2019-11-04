@@ -78,6 +78,6 @@ public class MD5Util {
 
     public static void main(String[] args) {
 
-        System.out.println(getMD5String("15111111035562236199903120040"));
+        System.out.println(getMD5String("15511119999421127196910277570"));
     }
 }
