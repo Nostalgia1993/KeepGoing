@@ -2,6 +2,9 @@ package com.nostalgia.string;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author liunian
  * @createTime 2019/8/19
@@ -30,6 +33,14 @@ public class TestString {
         } catch (Exception e) {
             System.out.println("只有我能执行");
         }
+    }
+
+    @Test
+    public void testJoin(){
+        List<String> list = Arrays.asList("111", "222");
+        String join = String.join("|", list);
+        System.out.println(join);
+
 
     }
 
