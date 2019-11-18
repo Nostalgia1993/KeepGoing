@@ -72,6 +72,13 @@ public class MyStream {
 
     }
 
+    @Test
+    public void testMap(){
+        List<String> collect = userList.stream().map(user -> user.getName()).collect(Collectors.toList());
+        System.out.println(collect);
+
+    }
+
     /**
      * 将原有的stream摊平到新的stream中
      */

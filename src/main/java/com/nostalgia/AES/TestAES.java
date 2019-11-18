@@ -10,7 +10,8 @@ import org.junit.Test;
 public class TestAES {
 
 
-    private static String aesKey = "fheijERH235GS63A";
+    /*private static String aesKey = "fheijERH235GS63A";*/
+    private static String aesKey = "fhesuhfuesh2f4ui";
     /*private static String aesKey = "j4mcn6bv8wt2yeui";*/
 
     /**
@@ -31,8 +32,9 @@ public class TestAES {
      */
     @Test
     public void run22() throws Exception{
-        String requestData ="QyiOzRiB2jjUV0Id8lTkdu8KNjszNiGEC5qxBiKvaXrGgsoCzyVCND25j9wqKGURjZJCrnJ9kQP%2FVpx9m8cwkBNOsRIl7gQMpT5imexnnG8%3D";
-        System.out.println();
+        String requestData ="Zq/mgaE57jO5n1qYsfegoSnkb4m/3X9M8KdhlUNx3EmYqTekF4bfDEtQLZ7JubgU";
+        String origReqStr = AESUtil.aesDecrypt(requestData, AESUtil.base64Encode(aesKey));
+        System.out.println(origReqStr);
     }
 
 
@@ -55,7 +57,10 @@ public class TestAES {
         //加密
         String key = "Vxjeadc6xSTVx8HN";
         String data = AESUtil.aesEncrypt(josn, AESUtil.base64Encode(key));
+        String data2 = AESUtil.aesEncrypt(josn, AESUtil.base64Encode(key));
         System.out.println(data);
+        System.out.println(data2);
+        System.out.println(data.equals(data2));;
         //解密
         String origReqStr = AESUtil.aesDecrypt(data, AESUtil.base64Encode(key));
         System.out.println(origReqStr);
