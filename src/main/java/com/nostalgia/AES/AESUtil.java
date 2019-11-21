@@ -1,6 +1,7 @@
 package com.nostalgia.AES;
 
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.util.StringUtils;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
@@ -23,6 +24,7 @@ public class AESUtil {
      * @return 编码后的base 64 code
      */
     private static String base64Encode(byte[] bytes) {
+        /*return new BASE64Encoder().encode(bytes).replaceAll("[\\s*\t\n\r]", "");*/
         return new BASE64Encoder().encode(bytes);
     }
 

@@ -3,6 +3,7 @@ package com.nostalgia.date;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -121,4 +122,21 @@ public class TestDate {
         System.out.println(String.valueOf(o));
     }
 
+    @Test
+    public void run5() throws Exception{
+        long time = System.currentTimeMillis();
+        Date date = new Date(time);
+        System.out.println(date);
+        DateFormat formate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        System.out.println(formate.format(date));
+    }
+
+
+    @Test
+    public void run6() throws Exception{
+        long time = System.currentTimeMillis();
+        int timestamp = (int)time;
+        System.out.println(time);
+        System.out.println(timestamp);
+    }
 }
