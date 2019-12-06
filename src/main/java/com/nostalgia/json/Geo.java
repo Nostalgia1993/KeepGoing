@@ -1,15 +1,10 @@
 package com.nostalgia.json;
 
-import com.sun.istack.internal.NotNull;
-
-import java.math.BigDecimal;
-import java.util.Date;
-
 /**
  * 地理位置
  * Created by huangwujun on 2016/4/12.
  */
-public class Geo{
+public class Geo {
 
     private static final long serialVersionUID = 1690980363717020678L;
     /**
@@ -25,7 +20,7 @@ public class Geo{
     /**
      * 流程节点
 
-    /**
+     /**
      * 上送时间
      */
 
