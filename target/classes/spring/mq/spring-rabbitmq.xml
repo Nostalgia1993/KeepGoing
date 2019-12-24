@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+       default-lazy-init="true">
+
+    <aop:config proxy-target-class="true"/>
+    <!--注册annotation -->
+    <context:annotation-config/>
+
+    <!--交换器类型枚举-->
+    <!--<bean id="DIRECT" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+        <property name="staticField" value="com.qihoo.finance.msf.mq.base.enums.ExchangeType.DIRECT"/>
+    </bean>
+    <bean id="TOPIC" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+        <property name="staticField" value="com.qihoo.finance.msf.mq.base.enums.ExchangeType.TOPIC"/>
+    </bean>
+
+    &lt;!&ndash;配置中心连接工厂&ndash;&gt;
+    <bean id="connectionFactoryConfig" class="com.qihoo.finance.msf.mq.support.ConnectionFactoryConfig"
+          init-method="init" lazy-init="false">
+        <property name="configName" value="pps-app-rabbitmq-config"></property>
+    </bean>
+
+    <bean class="com.qihoo.finance.msf.mq.support.Receiver" init-method="init" lazy-init="false"
+          depends-on="connectionFactoryConfig,noticeThirdPartyHandler">
+        <property name="connectionFactoryConfig" ref="connectionFactoryConfig"/>
+        <property name="queue" value="queue.pps-app.noticeThirdParty"></property>
+        <property name="classOfHandler"
+                  value="com.qihoo.finance.pps.modules.rabbitmq.NoticeThirdPartyHandler"></property>
+        <property name="nHandlers" value="1"></property>
+    </bean>
+
+    &lt;!&ndash;接受授信申请审批结果&ndash;&gt;
+    <bean id="getApplResultsHandler" class="com.qihoo.finance.pps.modules.rabbitmq.GetApplResultsHandler"
+          scope="prototype"/>
+    <bean class="com.qihoo.finance.msf.mq.support.Receiver" init-method="init" lazy-init="false"
+          depends-on="connectionFactoryConfig,getApplResultsHandler">
+        <property name="connectionFactoryConfig" ref="connectionFactoryConfig"></property>
+        <property name="queue" value="queue.lps-app.callPpsApplQueue"></property>
+        <property name="classOfHandler" value="com.qihoo.finance.pps.modules.rabbitmq.GetApplResultsHandler"></property>
+        <property name="nHandlers" value="1"></property>
+    </bean>
+
+    &lt;!&ndash;用户关键事件一对多消费队列&ndash;&gt;
+    <bean id="noticeQueueSender" class="com.qihoo.finance.msf.mq.support.Sender" init-method="init" lazy-init="false"
+          depends-on="connectionFactoryConfig">
+        <property name="connectionFactoryConfig" ref="connectionFactoryConfig"/>
+        <property name="exchangeType" ref="DIRECT"/>
+        <property name="exchange" value="exchange.direct.pps-app"></property>
+        <property name="queue" value="queue.pps-app.noticeThirdParty"></property>
+        <property name="routingKey" value="key.pps-app.noticeThirdParty"></property>
+        <property name="bindKey" value="key.pps-app.noticeThirdParty"></property>
+    </bean>
+
+    &lt;!&ndash; rider发送队列,可处理MD5解密数据 &ndash;&gt;
+    <bean id="hidDbMobileQueueSender" class="com.qihoo.finance.msf.mq.support.Sender" init-method="init"
+          lazy-init="false" depends-on="connectionFactoryConfig">
+        <property name="connectionFactoryConfig" ref="connectionFactoryConfig"></property>
+        <property name="exchangeType" ref="DIRECT"></property>
+        <property name="exchange" value="exchange.direct.pps-rider"></property>
+        <property name="queue" value="queue.pps-rider.hidDbMobileQueue"></property>
+        <property name="routingKey" value="queue.pps-rider.hidDbMobileQueue"></property>
+        <property name="bindKey" value="queue.pps-rider.hidDbMobileQueue"></property>
+    </bean>
+
+    &lt;!&ndash; rider接受队列,MD5解密结果接受队列 &ndash;&gt;
+    <bean id="hidDbMobileResultHandler" class="com.qihoo.finance.pps.modules.order.consumer.hidDbMobileResultHandler"
+          scope="prototype"/>
+    <bean class="com.qihoo.finance.msf.mq.support.Receiver" init-method="init" lazy-init="false"
+          depends-on="connectionFactoryConfig,hidDbMobileResultHandler">
+        <property name="connectionFactoryConfig" ref="connectionFactoryConfig"></property>
+        <property name="queue" value="queue.rider-pps.hidDbMobileResultQueue"></property>
+        <property name="classOfHandler"
+                  value="com.qihoo.finance.pps.modules.order.consumer.hidDbMobileResultHandler"></property>
+        <property name="nHandlers" value="5"></property>
+    </bean>
+
+    &lt;!&ndash;接收&ndash;&gt;
+    <bean id="partnerHzbInsuranceGetHandler" class="com.qihoo.finance.pps.modules.rabbitmq.PartnerHzbInsuranceGetHandler" scope="prototype" />
+    <bean class="com.qihoo.finance.msf.mq.support.Receiver" init-method="init" lazy-init="false" depends-on="connectionFactoryConfig,partnerHzbInsuranceGetHandler">
+        <property name="connectionFactoryConfig" ref="connectionFactoryConfig"></property>
+        <property name="exchangeType" ref="DIRECT"></property>
+        <property name="exchange" value="exchange.direct.lps-key-events"></property>
+        <property name="queue" value="queue.lps-pps.insuranceAgentMessage"></property>
+        <property name="bindKeys" value="key.lps-app.insuranceAgentMessage"></property>
+        <property name="classOfHandler" value="com.qihoo.finance.pps.modules.rabbitmq.PartnerHzbInsuranceGetHandler"></property>
+        <property name="nHandlers" value="1"></property>
+    </bean>
+
+    &lt;!&ndash;接收&ndash;&gt;
+    <bean id="partnerHzbInsuranceGetInformHandler" class="com.qihoo.finance.pps.modules.rabbitmq.PpsApplResultHandler" scope="prototype" />
+    <bean class="com.qihoo.finance.msf.mq.support.Receiver" init-method="init" lazy-init="false" depends-on="connectionFactoryConfig,partnerHzbInsuranceGetInformHandler">
+        <property name="connectionFactoryConfig" ref="connectionFactoryConfig"></property>
+        <property name="exchangeType" ref="DIRECT"></property>
+        <property name="exchange" value="exchange.direct.lps-key-events"></property>
+        <property name="queue" value="queue.lps-pps.applStateMessage"></property>
+        <property name="bindKeys" value="key.lps-app.applStateMessage"></property>
+        <property name="classOfHandler" value="com.qihoo.finance.pps.modules.rabbitmq.PpsApplResultHandler"></property>
+        <property name="nHandlers" value="1"></property>
+    </bean>-->
+
+</beans>

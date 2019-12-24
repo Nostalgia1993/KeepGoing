@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nostalgia.dao.StudentDao">
+  <sql id="Base_Column_List">
+    Sno, Sname, Ssex, Sage, Sdept
+  </sql>
+  <resultMap id="BaseResultMap" type="com.nostalgia.entity.StudentEntity">
+    <id column="Sno" jdbcType="INTEGER" property="sno" />
+    <result column="Sname" jdbcType="VARCHAR" property="sname" />
+    <result column="Ssex" jdbcType="VARCHAR" property="ssex" />
+    <result column="Sage" jdbcType="VARCHAR" property="sage" />
+    <result column="Sdept" jdbcType="VARCHAR" property="sdept" />
+  </resultMap>
+  <insert id="insertStudentEntity" parameterType="com.nostalgia.entity.StudentEntity">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sno != null">
+        Sno,
+      </if>
+      <if test="sname != null">
+        Sname,
+      </if>
+      <if test="ssex != null">
+        Ssex,
+      </if>
+      <if test="sage != null">
+        Sage,
+      </if>
+      <if test="sdept != null">
+        Sdept,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sno != null">
+        #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="sname != null">
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="ssex != null">
+        #{ssex,jdbcType=VARCHAR},
+      </if>
+      <if test="sage != null">
+        #{sage,jdbcType=VARCHAR},
+      </if>
+      <if test="sdept != null">
+        #{sdept,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectStudentEntityBy" parameterType="com.nostalgia.entity.StudentEntity" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from student where 
+    <trim prefix="" prefixOverrides="and | or">
+      <if test="sno != null">
+         and Sno = #{sno,jdbcType=INTEGER}
+      </if>
+      <if test="sname != null">
+         and Sname = #{sname,jdbcType=VARCHAR}
+      </if>
+      <if test="ssex != null">
+         and Ssex = #{ssex,jdbcType=VARCHAR}
+      </if>
+      <if test="sage != null">
+         and Sage = #{sage,jdbcType=VARCHAR}
+      </if>
+      <if test="sdept != null">
+         and Sdept = #{sdept,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </select>
+  <select id="selectStudentEntityList" parameterType="com.nostalgia.entity.StudentEntity" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from student where 
+    <trim prefix="" prefixOverrides="and | or">
+      <if test="sno != null">
+         and Sno = #{sno,jdbcType=INTEGER}
+      </if>
+      <if test="sname != null">
+         and Sname = #{sname,jdbcType=VARCHAR}
+      </if>
+      <if test="ssex != null">
+         and Ssex = #{ssex,jdbcType=VARCHAR}
+      </if>
+      <if test="sage != null">
+         and Sage = #{sage,jdbcType=VARCHAR}
+      </if>
+      <if test="sdept != null">
+         and Sdept = #{sdept,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </select>
+</mapper>
